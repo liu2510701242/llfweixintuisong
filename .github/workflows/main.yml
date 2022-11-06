@@ -12,18 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
     
-      - name: Set up Python 3.8
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8.2
+          python-version: 3.9.1
       - name: Set timezone
         run: |
           cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
       - name: install pip packages
         run: |
-          pip install requests
-          pip install zhdate
-          pip freeze > requirements.txt
           python -m pip install --upgrade pip
           pip3 install -r requirements.txt
       - name: weixin
